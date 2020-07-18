@@ -1,7 +1,7 @@
 # pythonmatrix
 
 Script example that interacts with different APIs and displays the information on the AWTRIX matrix led.
-It also follows the Bitcoin 24h change price and change the Awtrix clock to red if Bitcoin is down and to green if up.
+It also follows the Bitcoin 24h/change price and modifies the Awtrix clock color to red if Bitcoin is down and to green if up.
 
 APIs:
 Prices that are displayed: Bitcoin, Ethereum, Sonos stock, Gold (XAU).
