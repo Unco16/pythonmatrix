@@ -10,6 +10,9 @@ Prices that are displayed: Bitcoin, Ethereum, Sonos stock, Gold (XAU).
 Free, it does not require an API key for the info that I need.
 
 - API for stock and gold price: Alphavantage https://www.alphavantage.co/documentation/
-Free but requires an API key for the needed information.
+Free but requires an API key. You can make one for free from Alphavantage webite.
+
+- Awtrix API: https://awtrixdocs.blueforcer.de/#/en-en/api
+Used to interract with the Awtrix matrix led. You need to adjust your IP:PORT.
 
 Every 5 minutes, prices are checked, Clock color is modified (if needed) and prices info are pushed on the matrix with their respective colors.
