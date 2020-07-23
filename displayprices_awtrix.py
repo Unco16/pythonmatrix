@@ -53,7 +53,8 @@ def prices_display():
     gold_price = rgold.json()["Realtime Currency Exchange Rate"]['5. Exchange Rate']
     gold_price = str(int(float(gold_price)))
 
-    tosend = {"force":True, "multiColorText":[{"text":"BTC: " + btc_price +"  -","color":[255,165,0]},{"text":"  ETH: " + eth_price +"  -","color":[128,128,128]},{"text":"  SONOS: " + sonos_price +"  -","color":[255,255,255]},{"text":"  GOLD: " + gold_price +" ","color":[255,255,0]}]}
+    tosend = {"force":True, "multiColorText":[{"text":"BTC: " + btc_price +"  -","color":[255,165,0]},{"text":"  ETH: " + eth_price +"  -","color":[128,128,128]},
+                                              {"text":"  SONOS: " + sonos_price +"  -","color":[255,255,255]},{"text":"  GOLD: " + gold_price +" ","color":[255,255,0]}]}
     requests.post(url = awtrix_api_url_notify, json = tosend)        
 
     
