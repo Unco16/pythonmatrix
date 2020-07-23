@@ -45,25 +45,18 @@ def checkprice_updatecolor():
 #Check different prices (btc,eth,sonos stock,gold) through different APIs and displays them on Awtrix      
 def prices_display():
     rbtc = requests.get(btc_url)
-    data_btc = rbtc.json()
-    btc_price = data_btc['RAW']['PRICE']
-
+    btc_price = str(rbtc.json()['RAW']['PRICE'])
+    
     reth = requests.get(eth_url)
-    data_eth = reth.json()
-    eth_price = data_eth['RAW']['PRICE']
+    eth_price = str(reth.json()['RAW']['PRICE'])
 
     rsonos = requests.get(sono_url)
-    data_sonos = rsonos.json()
-    sonos_price = data_sonos['Global Quote']['05. price']
+    sonos_price = rsonos.json()['Global Quote']['05. price']
+    sonos_price = sonos_price[:5]
 
     rgold = requests.get(gold_url)
-    data_gold = rgold.json()
-    gold_price = data_gold["Realtime Currency Exchange Rate"]['5. Exchange Rate']
+    gold_price = rgold.json()["Realtime Currency Exchange Rate"]['5. Exchange Rate']
     gold_price = str(int(float(gold_price)))
-
-    btc_price = str(btc_price)
-    eth_price = str(eth_price)
-    sonos_price = sonos_price[:5]
 
     tosend = {"force":True, "multiColorText":[{"text":"BTC: " + btc_price +"  -","color":[255,165,0]},{"text":"  ETH: " + eth_price +"  -","color":[128,128,128]},{"text":"  SONOS: " + sonos_price +"  -","color":[255,255,255]},{"text":"  GOLD: " + gold_price +" ","color":[255,255,0]}]}
     requests.post(url = awtrix_api_url_notify, json = tosend)        
