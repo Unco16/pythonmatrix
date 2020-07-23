@@ -22,6 +22,7 @@ eth_url = 'https://min-api.cryptocompare.com/data/generateAvg?fsym=ETH&tsym=USD&
 red = {"TextColor":"255,0,0"}
 green = {"TextColor":"0,255,0"}
 
+
 #Check the bitcoin price and adjust Awtrix text color in red or green depends if BTC is up or down the last 24h
 def checkprice_updatecolor():
     # Check BTC 24h Price change 
@@ -35,6 +36,7 @@ def checkprice_updatecolor():
     elif (btc_change < 0):
         requests.post(awtrix_api_url, json = red)
 
+        
 #Check different prices (btc,eth,sonos stock,gold) through different APIs and displays them on Awtrix      
 def prices_display():
     rbtc = requests.get(btc_url)
@@ -54,6 +56,7 @@ def prices_display():
     tosend = {"force":True, "multiColorText":[{"text":"BTC: " + btc_price +"  -","color":[255,165,0]},{"text":"  ETH: " + eth_price +"  -","color":[128,128,128]},{"text":"  SONOS: " + sonos_price +"  -","color":[255,255,255]},{"text":"  GOLD: " + gold_price +" ","color":[255,255,0]}]}
     requests.post(url = awtrix_api_url_notify, json = tosend)        
 
+    
 scheduler = BlockingScheduler()
 
 # Run btc checkprice_updatecolor and prices_display every 5 minutes
