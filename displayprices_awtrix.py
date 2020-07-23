@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jul 18 18:37:16 2020
-
-@author: unco
-"""
-
 import requests
 import apscheduler
 import time
