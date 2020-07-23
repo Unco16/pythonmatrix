@@ -27,9 +27,7 @@ green = {"TextColor":"0,255,0"}
 def checkprice_updatecolor():
     # Check BTC 24h Price change 
     r = requests.get(btc_url)
-    data_btc = r.json()
-    btc_change = data_btc['RAW']['CHANGE24HOUR']
-
+    btc_change = r.json()['RAW']['CHANGE24HOUR']
     # Adjust Awtrix text color in red or green depends if BTC is up or down the last 24h
     if (btc_change > 0):
         requests.post(awtrix_api_url, json = green)
